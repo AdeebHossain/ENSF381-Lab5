@@ -214,33 +214,67 @@ Description : DOM Elements.
                 navBar.style.backgroundColor = 'pink';
 
 				// Task 3: Hide the section titled 'What is full-stack?'
-                const whatIsFullStack = Array.from(
+                const fullStack = Array.from(
                     document.querySelectorAll("h2")
-                ).find((h2) => h2.textContent === 'What is a full-stack?')
+                ).find((h2) => h2.textContent === 'What is full-stack?')
 
-                if(whatIsFullStack) {
-                    whatIsFullStack.parentElement.style.display = "none"
+                if(fullStack) {
+                    fullStack.parentElement.style.display = "none"
                 }
 
 				// Task 4: Create a new <p> element and append it to the 'About Us' section
+                const aboutSection = document.querySelector('section h2:first-of-type').closest('section');
+                const newParagraph = document.createElement('p');
+                newParagraph.textContent = "Hello! This is a new paragraph.";
+                aboutSection.appendChild(newParagraph);
 
+                // Task 5: Add placeholders to input elements based on their corresponding label IDs
 
-				// Task 5: Add placeholders to input elements based on their corresponding label IDs
-
+                const input = document.querySelectorAll('label');
+                    for ( const i of input) {
+                        const id = i.getAttribute('for');
+                        const j = document.getElementById(id);
+                        j.setAttribute('placeholder', id);
+                        i.setAttribute('placeHolder', j.getAttribute('for'))
+                    }
 
 				// Task 6: Set the src attribute of the image
-
+                const image = document.querySelector('img');
+                image.src = "./images/example.svg";
 
 				// Task 7: Add a new item in the navigation menu
 
+                const nav = document.querySelector('nav ul');
+                const newNavItem = document.createElement('li');
+                const newNavLink = document.createElement('a');
+
+                newNavLink.textContent = "New";
+                newNavLink.href = "#"; 
+                newNavItem.appendChild(newNavLink);
+                nav.appendChild(newNavItem);
 
 				// Task 8: Change the submit button text upon clicking and make it disabled
+                const submitButton = document.querySelector('input[type="button"]');
 
+                submitButton.addEventListener('click', function() {
+                    submitButton.value = "Submitted";
+                    submitButton.disabled = true;
+                });
 
 				// Task 9: Change the text color of each item in the 'Related Links' to green
+                const relatedLinks = document.querySelectorAll('aside ul li a');
 
+                relatedLinks.forEach(link => {
+                    link.style.color = "green";
+                });
 
 				// Task 10: Add a red solid border to the footer
+
+                const footer = document.querySelector('footer');
+
+                footer.style.border = "2px solid red";
+
+
 			});
 		</script>
 
