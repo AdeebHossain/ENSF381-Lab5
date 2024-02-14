@@ -149,7 +149,7 @@ function addMatrices(matrix1, matrix2){
     }
 
     showResult2D('The Result', 'matrix3', result);
-}
+};
 const subtractMatrices = function (matrix1, matrix2) { 
 	// provide the code
     if (matrix1.length !== matrix2.length || matrix1[0].length !== matrix2[0].length) {
